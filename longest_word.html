@@ -1,0 +1,22 @@
+<script type="text/javascript">
+  function longestWord (sen){
+    var senSplit= sen.replace(/[^a-zA-z0-9\s]/g, "").split(" ");
+    /*
+    if the sen contains any charecters that are not a-z, 0-9, or whitespace,
+    then we replace them with "" i.e nothing
+    */
+    console.log('newsen = ', senSplit);
+    var longest = ""
+    for(var i = 0; i< senSplit.length; i++){
+        console.log(senSplit[i]);
+        if(senSplit[i].length > longest.length){
+          longest = senSplit[i]
+        }
+    }
+    console.log('The logest word is',longest,'with', longest.length, ' charecters');
+
+    return longest
+  }
+
+  longestWord("I am superman, and I can fly!")
+</script>

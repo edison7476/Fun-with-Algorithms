@@ -1,0 +1,70 @@
+<script type="text/javascript">
+    function letterChanges(str) {
+        var newStr = [];
+        for (var i = 0; i < str.length; i++) {
+          var charCode = str.charCodeAt(i);
+            console.log('charCodeAt', charCode);
+            if((charCode > 64 && charCode < 91)||(charCode > 96 && charCode < 123)){
+              charCode += 1;
+            }
+            switch (charCode) {
+                case 97:
+                  charCode = 65
+                  break;
+                case 101:
+                  charCode = 69
+                  break;
+                case 105:
+                  charCode = 73
+                  break
+                case 111:
+                  charCode = 79
+                  break;
+                case 117:
+                  charCode = 85
+                  break;
+                default:
+                    charCode
+            }
+            // newStr.push(String.fromCharCode(str.charCodeAt(i)+1));
+            newStr.push(String.fromCharCode(charCode));
+
+        }
+        console.log(newStr.join(""));
+        return newStr.join("")
+    }
+    letterChanges('hello! world* /:[yo]')
+
+    function Node(val){
+      this.val = val;
+      this.next = null
+    }
+
+    function singleList(){
+      this.head = null;
+    }
+    singleList.prototype.add = function (val){
+      if(!this.head){
+        this.head = new Node(val)
+        return this;
+      }
+      var pointer = this.head;
+      while(pointer.next){
+        pointer = pointer.next;
+      }
+      pointer.next = new Node(val)
+      return this;
+    }
+    singleList.prototype.disconnect = function (){
+      var removeNode = this.head;
+      this.head = this.head.next;
+      removeNode.next = null;
+      console.log('disconnecting this node', removeNode);
+      return this
+    }
+    var ls = new singleList();
+    ls.add(1).add(2).add(3).add(4)
+    ls.disconnect()
+    console.log(ls);
+
+</script>

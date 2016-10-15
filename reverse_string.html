@@ -1,0 +1,17 @@
+<script type="text/javascript">
+var reverseString = function(s) {
+  console.log("Reversing the following string: ", s);
+  var newString = s.split("");
+  var temp = "";
+  for(var i = 0; i< Math.floor((s.length)/2); i++){
+      temp = newString[i]
+      newString[i] = newString[s.length - i -1]
+      newString[s.length - i -1] = temp
+  }
+  var reversedString = newString.join("");
+  console.log("Successfully reversed the string: ", reversedString);
+  return reversedString
+};
+
+reverseString("hello");
+</script>

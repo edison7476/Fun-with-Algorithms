@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script>
+$(document).ready(function (){
+  console.log('ready');
+    var $input = $('#input')
+    var strArray = $input.val();
+    var array = "[" + strArray + "]"
+  $('#btn').click(function (){
+    console.log("btn clicked!");
+    console.log(typeof(strArray));
+    console.log($input.val()); // type = string
+    console.log(array);
+    // mergeSort([4, 2, 6, 1, 3, 8, 11,9,26,45, 5])
+
+    // mergeSort(array);
+  })
+})
+    function mergeSort(arr) {
+        console.log("now sorting this array", arr);
+        if (arr.length < 2) {
+          console.log('arr.lenght < 2', arr);
+            return arr;
+        }
+        var n = Math.floor(arr.length / 2);
+        var left = arr.slice(0, n);
+        var right = arr.slice(n, arr.length);
+        console.log("left arr = ", left, "right arr = ", right);
+
+        console.log("$!$!$ mergeSort(left) = ");
+        left  = mergeSort(left);
+
+        console.log( ' @~~@~~@ excute mergeSort(right)');
+        right = mergeSort(right);
+        console.log("return merge(mergeSort(left), mergeSort(right))", left, right);
+        return merge(left, right, n);
+    }
+
+    function merge(left, right, n ) {
+        console.log("merge function is called", left, right, n);
+        var result = [];
+        var i = 0;
+        var j = 0;
+        var lng = left.length + right.length;
+        for(var k = 0; k <  lng ; k++){
+          console.log('index i = ', i);
+          console.log('index j = ', j);
+          if(i === left.length && j < right.length){
+            // console.log('index i reaches the length of left array');
+            result[k] = right[j];
+            console.log(result[k]);
+            j++;
+
+          }
+          else if (j === right.length && i < left.length ){
+            // console.log('index i reaches the length of right array');
+            result[k] = left[i];
+            i++;
+          }
+          else if(left[i] < right[j]){
+            // console.log('k = ', k);
+            // console.log('left i = ', i, ' left[i] = ', left[i]);
+            result[k] = left[i];
+            // console.log('result Array' ,result[k] );
+            i++;
+          } else {
+            // console.log('k = ', k);
+            // console.log('right j = ', j,' right[j] = ', right[j]);
+            result[k] = right[j];
+            // console.log('result Array' ,result[k] );
+            j++;
+          }
+
+        }
+
+        console.log('Result is = ', result);
+        return result;
+    }
+
+    // mergeSort([4, 2, 6, 1, 3, 8, 11,9,26,45, 5])
+
+
+</script>
+
+<body>
+    Please give an array in any order with any length. EX: [3,7,4,5,2,8]
+    <br>
+    <form class="" action="index.html" method="post">
+        <input id="input" type="text" name="name" value="">
+        <input id="btn" type="button" name="name" value="Merge Sort">
+    </form>
+      <div id="result"></div>
+
+</body>
+</html>
