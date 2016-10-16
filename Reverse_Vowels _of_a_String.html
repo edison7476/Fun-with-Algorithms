@@ -1,0 +1,38 @@
+<!--
+  Write a function that takes a string as input and reverse only the vowels of a string.
+
+  Example 1:
+  Given s = "hello", return "holle".
+
+  Example 2:
+  Given s = "leetcode", return "leotcede".
+-->
+
+<script type="text/javascript">
+  var reverseVowels = function(s) {
+    var sArray = s.split("")
+    var vowels = [];
+
+    // Use regex to find vowels and store them in an array
+    for( var i = 0; i < s.length; i++){
+      if( (/^[aeiou]$/i).test(s[i]) ){
+        vowels.push(s[i])
+      }
+    }
+
+    // creat a variable to store the length of the vowel array
+    var count = vowels.length - 1
+
+    // Loop trough the s, find vowels and replace them with the element in our vowels array.
+    for( var j = 0; j< sArray.length; j++){
+      if( (/^[aeiou]$/i).test(sArray[j]) ){
+        sArray[j] = vowels[count-- ]
+      }
+    }
+    // console.log("vowels Array= ", vowels);
+    // console.log("result = ", sArray.join("") );
+    return sArray.join("")
+  };
+
+  reverseVowels("hello");
+</script>
