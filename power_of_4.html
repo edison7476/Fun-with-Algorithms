@@ -1,0 +1,22 @@
+<!--
+Given an integer (signed 32 bits), write a function to check whether it is a power of 4.
+
+Example:
+Given num = 16, return true. Given num = 5, return false.
+
+Solve it without loops/recursion.
+-->
+<script type="text/javascript">
+var isPowerOfFour = function(num) {
+  // initial condition is very important.
+  // Setting great initial conditions will reduce your runtime
+  if( num === 0 ){
+      return false
+  }
+  // return Number.isInteger(Math.log(num)/Math.log(4))
+  return (Math.log(num)/Math.log(4)) % 1 === 0
+
+};
+
+isPowerOfFour(64)
+</script>
