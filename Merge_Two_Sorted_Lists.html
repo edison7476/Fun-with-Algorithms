@@ -1,0 +1,83 @@
+<script type="text/javascript">
+
+  function Node(val){
+    this.val = val;
+    this.next = null;
+  }
+
+  function List (){
+    this.head = null;
+  }
+
+  List.prototype.add = function (val){
+    if(!this.head){
+      this.head = new Node(val);
+      return this
+    }
+    var currentNode = this.head;
+
+    while(currentNode.next){
+      currentNode = currentNode.next
+    }
+
+    currentNode.next = new Node(val);
+    return this
+  }
+
+  var L1 = new List();
+  var L2 = new List();
+  L1.add(1).add(3).add(4).add(7)
+  L2.add(2).add(6).add(8).add(11)
+
+  console.log("L1 = ", L1);
+  console.log("L2 = ", L2);
+
+// var mergeTwoLists = function(l1, l2){
+//   var merge = new Node();
+//   var pointer1 = l1.head;
+//   var pointer2 = l2.head;
+//
+//   console.log(pointer1.val, pointer2.val);
+//
+//   if(!merge.val){
+//     if(pointer1.val < pointer2.val){
+//         merge = l1
+//         pointer1 = pointer1.next
+//       }
+//     else{
+//         merge = l2
+//         pointer2 = pointer2.next
+//       }
+//     }
+//   var pointerMerge = merge.head;
+//   console.log("pointerMerge = ", pointerMerge);
+//   console.log(pointer1);
+//   console.log(pointer2);
+//
+//   while(pointer1.next !== null && pointer2.next !== null ){
+//
+//     if(pointer1.val < pointer2.val){
+//
+//         pointerMerge.next = l1
+//         pointerMerge = pointerMerge.next
+//         console.log("pointer1 SMALL pointerMerge = ", pointerMerge);
+//         console.log("merge is = ", merge);
+//         pointer1 = pointer1.next
+//       }
+//     else{
+//
+//       pointerMerge.next = l2
+//       pointerMerge = pointerMerge.next
+//         console.log("pointer2  SMALL pointerMerge = ", pointerMerge);
+//         console.log("merge is = ", merge);
+//         pointer2 = pointer2.next
+//       }
+//
+//     }
+//   console.log("merge = ", merge);
+// }
+
+
+// mergeTwoLists(L1, L2)
+
+</script>
