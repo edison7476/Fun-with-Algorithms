@@ -1,0 +1,16 @@
+<!--
+Given an integer, write a function to determine if it is a power of three without using any loop / recursion.
+-->
+
+<script type="text/javascript">
+var isPowerOfThree = function(n) {
+
+  if( n < 1){
+      return false
+  }
+  else if( n === 1 ){
+      return true
+  }
+   return (Math.log10(n)/Math.log10(3)) % 1 == 0
+};
+</script>
