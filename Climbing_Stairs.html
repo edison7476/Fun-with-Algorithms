@@ -1,0 +1,37 @@
+<!--
+You are climbing a stair case. It takes n steps to reach to the top.
+
+Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
+-->
+<script type="text/javascript">
+function binomial(n, k) {
+  if ((typeof n !== 'number') || (typeof k !== 'number'))
+    return false;
+
+    var coeff = 1;
+    for (var x = n-k+1; x <= n; x++) coeff *= x;
+    for (x = 1; x <= k; x++) coeff /= x;
+    return coeff;
+}
+
+var climbStairs = function(n) {
+
+    var ans = 0;
+    if(n < 4){
+        return n;
+    }
+
+    var len = Math.floor(n/2);
+
+    for(var i = 1; i<= len; i++){
+        ans += binomial(n-i , i)
+        console.log("ans = ", ans)
+    }
+
+    return ans+1
+
+};
+
+console.log(climbStairs(12));
+
+</script>
