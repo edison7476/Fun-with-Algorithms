@@ -33,16 +33,13 @@ Each time you can either climb 1 or 2 steps. In how many distinct ways can you c
 // };
 
 var climbStairs = function(n) {
- // var res = {
- //     0 : 1,
- //     1 : 1
- // }
 
 var res = [1,1]
 
  for(var i = 2; i <= n ; i++){
      res[i] = res[i-1] + res[i-2]
  }
+ console.log(res);
   return res[n]
 }
 console.log(climbStairs(12));

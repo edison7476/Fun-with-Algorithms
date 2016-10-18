@@ -21,7 +21,10 @@ Given num = 38, the process is like: 3 + 8 = 11, 1 + 1 = 2. Since 2 has only one
       //     return 9
       // }
       else{
+        //  if the number is divisible by 9 then return 9
+        // else return the remainder i.i num % 9
           return num % 9 === 0 ? 9 : num % 9
+
           // return num - Math.floor(num/9)*9
       }
   };

@@ -1,0 +1,23 @@
+<script type="text/javascript">
+var isHappy = function(n) {
+
+  var appearedNum = {}
+
+  while( !appearedNum[n] && n !== 1){
+    appearedNum[n] = n
+    var newNum = 0
+    var num = (""+n).split("");
+
+    for(var i = 0; i<num.length; i++){
+      newNum += num[i] * num[i]
+    }
+    n = parseInt(newNum)
+    console.log(n);
+
+  }
+  console.log("appearedNum = ",appearedNum);
+  return n === 1 ? console.log("Happy Number") : console.log("This is Not a Happy Number")
+}
+
+isHappy(89)
+</script>
