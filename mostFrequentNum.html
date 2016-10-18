@@ -1,0 +1,23 @@
+<script type="text/javascript">
+
+  function mostFrequentNum (arr){
+    var numTable = {};
+    var mostFreq = 0;
+    var result;
+
+    for(var i = 0; i< arr.length; i++){
+      numTable[arr[i]] = (numTable[arr[i]] || 0 ) + 1
+
+      if(numTable[arr[i]] > mostFreq){
+        mostFreq = numTable[arr[i]]
+        result = arr[i]
+      }
+
+    }
+    console.log("numTable = ", numTable);
+    console.log("result = ", result);
+    return result;
+  }
+  var arr1 = [2,3,4,6,2,5,7,8,9,3,2,3,4,2]
+  mostFrequentNum(arr1)
+</script>
