@@ -1,0 +1,43 @@
+<!--
+Given two arrays, write a function to compute their intersection.
+
+Example:
+Given nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [2].
+
+Note:
+Each element in the result must be unique.
+The result can be in any order.
+-->
+
+<script>
+var intersection = function(nums1, nums2) {
+
+  var result = [];
+  var short;
+  var long;
+
+  if(nums1.length == 0 || nums2.length ==0){
+      return result
+  }
+  else if(nums1.length > nums2.length){
+      long = nums1;
+      short = nums2;
+  }
+  else{
+      long = nums2;
+      short = nums1;
+  }
+
+  for(var i = 0; i < short.length; i++){
+      var value = short[i]
+      if(long.indexOf(value) >= 0 && result.indexOf(value) == -1){
+          result.push(value)
+      }
+  }
+
+  return result;
+
+
+};
+
+</script>
