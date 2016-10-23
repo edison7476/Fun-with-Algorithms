@@ -1,0 +1,38 @@
+<!--
+Given two binary trees, write a function to check if they are equal or not.
+
+Two binary trees are considered equal if they are structurally identical and the nodes have the same value.
+
+-->
+<script type="text/javascript">
+/**
+* Definition for a binary tree node.
+* function TreeNode(val) {
+*     this.val = val;
+*     this.left = this.right = null;
+* }
+*/
+/**
+* @param {TreeNode} p
+* @param {TreeNode} q
+* @return {boolean}
+*/
+var isSameTree = function(p, q) {
+// if both nodes are null --> they are the same
+  if(p === null && q === null){
+      return true
+  }
+  // if one has valie, but the other one doesn't --> they are different
+  else if((p === null && q !== null)||(p !== null && q === null)){
+      return false
+  }
+
+
+  else if(p.val !== q.val ){
+      return false
+  }
+
+  // check each node of p and q using recursion 
+  return isSameTree(p.left, q.left) && isSameTree(p.right, q.right)
+};
+</script>
