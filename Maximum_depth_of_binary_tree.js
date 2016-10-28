@@ -6,24 +6,26 @@ The maximum depth is the number of nodes along the longest path from the root no
 
 var maxDepth = function(root) {
     return findMaxDepth(root);
-    // 遞迴函式
+
     function findMaxDepth(node){
 
         if(node === null){
             return 0;
         }
 
-        var deepL = 1;
-        var deepR = 1;
+        // var deepL = 1;
+        // var deepR = 1;
+        //
+        // if(node.left !== null){
+        //     deepL += findMaxDepth(node.left);
+        // }
+        //
+        // if(node.right !== null){
+        //     deepR += findMaxDepth(node.right);
+        // }
+        //
+        // return deepL > deepR ?　deepL: deepR;
 
-        if(node.left !== null){
-            deepL += findMaxDepth(node.left);
-        }
-
-        if(node.right !== null){
-            deepR += findMaxDepth(node.right);
-        }
-
-        return deepL > deepR ?　deepL: deepR;
+        return Math.max(findMaxDepth(node.left), findMaxDepth(node.right)) + 1;
     }
 };
