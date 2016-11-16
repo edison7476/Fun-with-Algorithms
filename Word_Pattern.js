@@ -14,7 +14,7 @@ Examples: pattern = "abba", str = "dog cat cat dog" should return true. pattern 
 var wordPattern = function(pattern, str) {
     var patternMap = {};
     var strMap = {};
-    var ary = str.split(/\s/)
+    var ary = str.split(/\s/);
 
 
     if(pattern.length != str.split(/\s/).length){
@@ -24,7 +24,7 @@ var wordPattern = function(pattern, str) {
     for(var i in pattern){
         var p = pattern[i];
         var s = ary[i];
-    
+
         if(!patternMap[p]){
             patternMap[p] = s;
         } else if(patternMap[p] != s){
