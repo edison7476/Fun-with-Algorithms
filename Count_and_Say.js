@@ -25,22 +25,17 @@ var countAndSay = function(n) {
 
         countSay = '';
 
-
         for(var j = 1 ; j < temp.length; j++){
 
             if(temp.charAt(j) == num){
                 count++;
             } else {
-
                 countSay += count;
                 countSay += num;
                 num = temp.charAt(j);
                 count = 1;
             }
-
         }
-
-
         countSay += count;
         countSay += num;
         return countSay;
