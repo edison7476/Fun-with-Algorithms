@@ -28,7 +28,6 @@ But the following [1,2,2,null,3,null,3] is not:
  * @param {TreeNode} root
  * @return {boolean}
  */
-
 var isSymmetric = function(root) {
     if (!root || !root.left && !root.right) return true;
     return checkIfSymmetric(root.left, root.right);
