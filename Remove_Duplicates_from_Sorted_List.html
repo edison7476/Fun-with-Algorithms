@@ -7,23 +7,35 @@
 -->
 
 <script type="text/javascript">
+// Change pointer
 var deleteDuplicates = function(head) {
-  console.log("Taking this list", head)
-  if(head === null || head.next === null){
-      return head
-  }
+    if (!head || !head.next) return head;
+    
+    let node = head;
+    
+    while (node && node.next) {
+        if (node.val === node.next.val) {
+        node.next = node.next.next;
+        } else {
+            node = node.next;
+        }      
+    }
+    return head;
+};
 
-  var currentNode = head
-
-  while(currentNode && currentNode.next !== null){
-
-      if(currentNode.val == currentNode.next.val ){
-          currentNode.next = currentNode.next.next
-      }
-      else{
-          currentNode = currentNode.next
-      }
-  }
-  return head
+// Use recursion
+var deleteDuplicates = function(head) {
+    if (!head || !head.next) return head;
+    
+    head.next = deleteDuplicates(head.next);
+    
+    /*  
+        uncomment the following line may help you to check what are the current head and the next head
+        console.log('current head = ', head )
+	    console.log('head.next = ', head.next)
+    */
+    return head.val === head.next.val ? head.next : head;
 };
 </script>
+
+
