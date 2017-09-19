@@ -19,15 +19,18 @@
 var isBalanced = function(root) {
     
     if (!root) return true
+    // Check the depth of each sub-node on each tree level
     const leftNodeDepth = findDepth(root.left);
     const rightNodeDepth = findDepth(root.right);
     
+    // check the next tree level only if the depth of each node on current tree level satisfied the condition 
     return Math.abs(leftNodeDepth - rightNodeDepth) < 2 &&
         isBalanced(root.left) &&
         isBalanced(root.right);
         
 };
 
+// Find the depth of the given node using recursion
 function findDepth(node) {
     if (!node) return 0
     
