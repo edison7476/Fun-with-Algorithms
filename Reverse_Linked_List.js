@@ -12,11 +12,10 @@ var reverseList = function(head) {
     var remainingList = head.next;     // 2-3-4
     moveToBack.next = null;            // moveToBack --> 1
 
-    while(remainingList !== null){
+    while(remainingList){
         var newHead = remainingList;         // 2-3-4
         remainingList = remainingList.next;  // 3-4
         newHead.next = moveToBack;           // newHead --> 2-1
-
 
         moveToBack = newHead;
     }
