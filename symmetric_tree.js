@@ -31,17 +31,31 @@ But the following [1,2,2,null,3,null,3] is not:
 
 var isSymmetric = function(root) {
     if (!root || !root.left && !root.right) return true;
-    return checkIfSymmetric(root.left, root.right);
-};
+    return checkNodeValue(root.left, root.right);
+}
 
-function checkIfSymmetric(L, R) {
-    if (!L && !R) {
-        return true;
-    } else if (!L || !R) {
-        return false;
-    }
-    
-    return L.val === R.val &&
-        checkIfSymmetric(L.left, R.right) &&
-        checkIfSymmetric(L.right, R.left);
+/**
+ * This function does the jod to chech node values on each symmetric position
+ * There are 3 cases:
+ *  1. both nodes at the symmetrci postion are empty ==> symmetric
+ *  2. one of the node at the symmetrci postion is empty ==> NOT symmetric
+ *  3. symmetric <==> both node values at the symmetrci postion are the same
+ */
+function checkNodeValue(leftNode, rightNode) {
+   /**
+   * If Both nodes contain values, then we check if the values are the same
+   * if they are the same valus, then we keep comparing the nodes at the symmetric positions
+   */
+   if (!leftNode && !rightNode) {
+       return true;
+   } else if (!leftNode || !rightNode) {
+       return false;
+   }
+   /**
+   * If Both nodes contain values, then we check if the values are the same
+   * if they are the same valus, then we keep comparing the nodes at the symmetric positions
+   */
+   return leftNode.val === rightNode.val &&
+        checkNodeValue(leftNode.left, rightNode.right) &&
+        checkNodeValue(leftNode.right, rightNode.left);
 }
