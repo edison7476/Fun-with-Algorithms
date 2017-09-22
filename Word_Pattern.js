@@ -41,3 +41,25 @@ var wordPattern = function(pattern, str) {
 
     return true;
 };
+
+//09-21-17
+var wordPattern2 = function(pattern, str) {
+    const strMapVal = str.split(' ');
+    
+    if (pattern.length !== strMapVal.length) return false;
+    const patternMap = {};
+    const strToPattern = {};
+    
+    for (let i = 0; i < pattern.length; i++) {
+        const patternVal = pattern[i];
+        const strVal = strMapVal[i]
+        
+        if (!patternMap[patternVal] && !strToPattern[strVal]) {
+            patternMap[patternVal] = strVal;
+            strToPattern[strVal] = patternVal
+        } else if (strMapVal[i] !== patternMap[patternVal]) {
+            return false;
+        }
+    }
+    return true;
+};
