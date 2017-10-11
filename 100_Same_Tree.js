@@ -23,3 +23,23 @@ var isSameTree = function(p, q) {
             (p.val === q.val) && isSameTree(p.left, q.left) && isSameTree(p.right, q.right) :
             false;
 };
+
+const deferred = Promise.defer();
+const promise = deferred.promise;
+
+// For promise resolved
+promise.then((response) => {
+    console.log('SUCCESS',  result)
+})
+// For promise reject
+promise.catch((error) => {
+    console.log(`Caught an error - ${error}`)
+})
+
+deferred.resolve('got data back') 
+// this would trigger `then` function 
+// and print out 'SUCCESS got data back'
+
+deferred.reject('Something went wrong')
+// this would trigger `catch` function 
+// and print out 'Caught an error - Something went wrong'
