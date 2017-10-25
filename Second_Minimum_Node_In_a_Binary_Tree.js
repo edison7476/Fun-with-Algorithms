@@ -5,24 +5,25 @@
 
         Example 1:
         Input: 
-             2
-            / \
-           2   5
-              / \
-             5   7
+            2
+           / \
+          2   5
+             / \
+            5   7
 
         Output: 5
-        
         Explanation: The smallest value is 2, the second smallest value is 5.
+        
         Example 2:
         Input: 
-             2
-            / \
-           2   2 
+            2
+           / \
+          2   2
 
         Output: -1
         Explanation: The smallest value is 2, but there isn't any second smallest value.
  */
+
 
 /**
  * Definition for a binary tree node.
@@ -41,22 +42,22 @@ var findSecondMinimumValue = function(root) {
     if (!root.left || root.left.val === root.right.val) {
         return -1;
     } else if  (root.left.val < root.right.val) {
-        const minValOnLeftTree = findMinVal(root.left, root.val);
+        const minValOnLeftTree = findVal(root.left, root.val);
         return minValOnLeftTree < root.right.val ? minValOnLeftTree : root.right.val;
     } else {
-        const minValOnRightTree = findMinVal(root.right, root.val);
+        const minValOnRightTree = findVal(root.right, root.val);
         return minValOnRightTree < root.left.val ? minValOnRightTree : root.left.val;
     }
     
     
 };
             
-function findMinVal(node, rootVal) {
+function findVal(node, rootVal) {
     if (!node) return;
   
     node.val = (node.val === rootVal) ? 9999999999 : node.val;
-    const leftNode = findMinVal(node.left, rootVal) || node.val;
-    const rightNode = findMinVal(node.right, rootVal) || node.val;
+    const leftNode = findVal(node.left, rootVal) || node.val;
+    const rightNode = findVal(node.right, rootVal) || node.val;
     
     return Math.min(leftNode, rightNode)
 }
