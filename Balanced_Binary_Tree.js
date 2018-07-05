@@ -39,3 +39,30 @@ function findDepth(node) {
 
 
 
+var isBalanced = function(root) {
+    if (!root) {
+        return true;
+    }
+    // ex: 1 && true -> true
+    // or use Boolen()
+    return findDepth(root) && true;
+
+    function findDepth(node) {
+        if (!node) {
+            return 0;
+        }
+
+        const L = findDepth(node.left);
+        const R = findDepth(node.right);
+
+        if (L === false || R === false) {
+            return false;
+        }
+
+        const isBalanceTree = Math.abs(L - R) < 2;
+
+        // false && 1 -> false
+        // true && 1 -> 1
+        return isBalanceTree && Math.max(L, R) + 1;
+    }
+}
