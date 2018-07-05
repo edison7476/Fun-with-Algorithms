@@ -46,3 +46,23 @@ var sumOfLeftLeaves = function(root) {
 
     return sum
 };
+
+
+
+var sumOfLeftLeaves = function(root) {
+    if (!root) {
+        return 0;
+    }
+
+    // if the left node doesn't have any sub-nodes,
+    // then we want to return the left node value
+    // only need to traverse the right tree from the current node
+    if (root.left &&
+        !root.left.left &&
+        !root.left.right
+    ) {
+        return root.left.val += sumOfLeftLeaves(root.right);
+    }
+
+    return sumOfLeftLeaves(root.left) + sumOfLeftLeaves(root.right);
+}
