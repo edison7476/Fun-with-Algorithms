@@ -49,6 +49,8 @@ var reverse = function(x) {
   
           // convert a float to an integer using a no-op binary or (| 0):
           // same as x = Math.floor(x / 10);
+          // or we can substacct the last digit then x / 10
+          // x = (x - lastDigit) / 10;
           x = (x / 10) | 0;
       }
       
