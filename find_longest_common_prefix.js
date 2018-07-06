@@ -43,7 +43,10 @@ var longestCommonPrefix = function(strs) {
         }
     }
     return commonPrefix;
-
+    
+    // str = 'abcd'
+    // str.substring(0, 4) -> 'abcd'
+    // str.substring(0, 3) -> 'abc'
     function findCommonPrefix(str) {
         lastChar = commonPrefix.length - 1;
         commonPrefix = commonPrefix.substring(0, lastChar);
