@@ -48,3 +48,34 @@ function createPath(node, path, result) {
 
     return ''
 }
+
+
+var binaryTreePaths2 = function(root) {
+    const result = [];
+    let path = '';
+
+    if (!root) {
+        return path;
+    }
+    createPath(root, path);
+    return result;
+
+    function createPath(node, path) {
+        // if (!node) {
+        //     result.push(path += node)
+        // }
+        if(!node.left && !node.right) {
+            result.push(path + node.val);
+        }
+
+        path = node.val + '->';
+
+        if (node.left) {
+            createPath(node.left, path);
+        }
+
+        if (node.right) {
+            createPath(node.right, path);
+        }
+    }
+}
